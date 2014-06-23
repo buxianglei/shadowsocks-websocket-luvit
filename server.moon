@@ -153,6 +153,9 @@ server = http.createServer (req, res) ->
   res\writeHead 200, { ["Content-Type"]: "text/plain" }
   res\finish 'Good Day!'
 
+process\on "error", (e) ->
+  p "error: #{e}"
+
 xpcall (->
     server\listen PORT, ->
     address = server\address!

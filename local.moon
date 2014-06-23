@@ -204,6 +204,9 @@ server = net.createServer (connection) ->
     req\destroy! if req
     remote\destroy! if remote
 
+process\on "error", (e) ->
+  p "error: #{e}"
+
 xpcall (->
     server\listen PORT, ->
     address = server\address!
