@@ -30,7 +30,7 @@ Total 21 (delta 2), reused 0 (delta 0)
 
 -----> Fetching custom git buildpack... done
 -----> luvit app detected
------> Fetching Luvit version 0.7.0
+-----> Fetching Luvit version 0.8.0
 -----> Discovering process types
        Procfile declares types -> web
 
@@ -40,15 +40,6 @@ Total 21 (delta 2), reused 0 (delta 0)
 
 To git@heroku.com:aqueous-harbor-3464.git
  * [new branch]      master -> master
-```
-
-While in beta, WebSocket functionality must be enabled via the Heroku Labs:
-
-```
-$ heroku labs:enable websockets
-Enabling websockets for aqueous-harbor-3464... done
-WARNING: This feature is experimental and may change or be removed without notice.
-For more information see: https://devcenter.heroku.com/articles/heroku-labs-websockets
 ```
 
 Set a few configs:
@@ -64,14 +55,14 @@ Then run:
 
 ```
 $ luvit local.lua -s aqueous-harbor-3464.herokuapp.com -l 1080 -m rc4 -k foobar
-"shadowsocks-websocket-luvit v0.9.7"
+"shadowsocks-websocket-luvit 0.0.1"
 { server = "aqueous-harbor-3464.herokuapp.com", method = "rc4", local_port = "1080", password = "foobar" }
 "server listening at port 0.0.0.0:1080"
 ```
 
 Change proxy settings of your browser into:
 
-    SOCKS5 127.0.0.1:local_port
+    SOCKS5 127.0.0.1:1080
 
 Troubleshooting
 ----------------
